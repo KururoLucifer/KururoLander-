@@ -1,0 +1,25 @@
+<script>
+  let localStream;
+  let isMuted = false;
+
+  const joinBtn = document.getElementById('join-call');
+  const muteBtn = document.getElementById('mute-btn');
+  const callStatus = document.getElementById('call-status');
+
+  joinBtn.addEventListener('click', async () => {
+    try {
+      localStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      callStatus.textContent = '🎙️ Tu es dans l’appel';
+      muteBtn.disabled = false;
+    } catch (err) {
+      alert('Micro refusé ou indisponible.');
+    }
+  });
+
+  muteBtn.addEventListener('click', () => {
+    if (!localStream) return;
+    isMuted = !isMuted;
+    localStream.getAudioTracks()[0].enabled = !isMuted;
+    muteBtn.textContent = isMuted ? 'Unmute' : 'Mute';
+  });
+</script>
