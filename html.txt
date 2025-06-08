@@ -1,0 +1,6 @@
+<div id="voice-chat" style="padding: 20px; border-top: 1px solid #ccc;">
+  <h3>Discussion vocale</h3>
+  <button id="join-call">Rejoindre l'appel</button>
+  <button id="mute-btn" disabled>Mute</button>
+  <p id="call-status">Tu n’es pas dans l’appel.</p>
+</div>
